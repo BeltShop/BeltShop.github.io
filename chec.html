@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get HTML code</title>
+</head>
+<body>
+  <h1>Get HTML code</h1>
+  <script>
+    fetch('https://fxfd24.github.io/index_v2.html')
+      .then(response => response.text())
+      .then(html => console.log(html));
+  </script>
+</body>
+</html>

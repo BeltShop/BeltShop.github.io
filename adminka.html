@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MyPortfolio Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <main id="main" class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="category">Категория товара:</label>
+            <input type="text" id="category" name="category" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Название товара:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="price">Цена товара:</label>
+            <input type="number" id="price" name="price" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Описание товара:</label>
+            <textarea id="description" name="description" class="form-control" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="photo">Фото товара:</label>
+            <input type="file" id="photo" name="photo" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="size">Размер товара:</label>
+            <input type="text" id="size" name="size" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="article">Артикул товара:</label>
+            <input type="text" id="article" name="article" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="packaging">Упаковка товара:</label>
+            <input type="text" id="packaging" name="packaging" class="form-control" required>
+          </div>
+          <button type="submit" id="add-product" class="btn btn-primary">Добавить товар</button>
+        </form>
+      </div>
+    </div>
+    <div id="product-list" class="row justify-content-center">
+      <!-- products will be listed here -->
+    </div>
+  </main>
+
+  <script type="text/javascript">
+    const form = document.querySelector('form');
+    const productList = document.querySelector('#product-list');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const category = document.querySelector('#category').value;
+      const name = document.querySelector('#name').value;
+      const price = document.querySelector('#price').value;
+      const description = document.querySelector('#description').value;
+      const photo = document.querySelector('#photo').files[0];
+      const size = document.querySelector('#size').value;
+      const article = document.querySelector('#article').value;
+      const packaging = document.querySelector('#packaging').value;
+
+      const productHTML = `
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="${URL.createObjectURL(photo)}" alt="${name}" class="card-img-top">
+            <div class="card-body">
+              <h2>${name}</h2>
+              <p>Категория: ${category}</p>
+              <p>Цена: ${price}</p>
+              <p>Описание: ${description}</p>
+              <p>Размер: ${size}</p>
+              <p>Артикул: ${article}</p>
+              <p>Упаковка: ${packaging}</p>
+            </div>
+          </div>
+        </div>
+      `;
+
+      productList.innerHTML += productHTML;
+    });
+  </script>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
